@@ -63,6 +63,46 @@ function anadirEmpleado (){
     }
 }
 
+function borrarEmpleado (){
+    let dniEmp = document.getElementById("dni").value;
+    if(!comprobarDni(dniEmp)){
+        alert("IMPOSIBLE BORRAR. El empleado no está en la tabla");
+    }
+    else{
+        let dnis = document.querySelectorAll("td:nth-child(2)");
+        let resul;
+        for (let i = 0; i < dnis.length; i++){
+            if (dnis[i].textContent == dniEmp){
+                resul = dnis[i].parentNode;
+            }
+        }
+        let tabla= document.getElementsByTagName("tbody")[0];
+        tabla.removeChild(resul);
+        numeroTotalEmpleados();
+    }
+}
+
+function modificarEmpleado (){
+    let tabla= document.getElementsByTagName("tbody")[0];
+    let dniEmp = document.getElementById("dni").value;
+    let nombreEmp = document.getElementById("nombre").value;
+    let apellidosEmp = document.getElementById("apellidos").value;
+    if(!comprobarDni(dniEmp)){
+        alert("IMPOSIBLE MODIFICAR. El empleado no está en la tabla");
+    }
+    else{
+        let dnis = document.querySelectorAll("td:nth-child(2)");
+        let resul;
+        for (let i = 0; i < dnis.length; i++){
+            if (dnis[i].textContent == dniEmp){
+                resul = dnis[i].parentNode;
+            }
+        }
+        resul.querySelector("td:nth-child(3)").innerHTML= nombreEmp;
+        resul.querySelector("td:nth-child(4)").innerHTML= apellidosEmp;
+    }
+}
+
 function numeroTotalEmpleados(){
     let numEmpleados = document.getElementsByTagName("tr").length -1;
     document.getElementsByTagName("b")[0].innerHTML = `Número total de empleados: ${numEmpleados}`

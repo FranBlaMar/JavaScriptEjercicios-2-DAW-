@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Index </title>
+  </head>
+  <body>
+    <form method="get">
+      <p>Dni: <input type="text" placeholder="Introduzca el dni" id="dni"/> </p>
+      <p>Nombre: <input type="text" placeholder="Introduzca el nombre" id="nombre"/> </p>
+      <p>Edad: <input type="number" id="edad"/> </p>
+      <p>Sexo: <br><br>
+        <input type="radio" name="sexo" value="Hombre" id="sexo" /> Hombre
+        <input type="radio" name="sexo" value="Mujer" id="sexo" /> Mujer
+        <input type="radio" name="sexo" value="Otro" id="sexo" /> Otro
+      </p>
+      <p> Tiene hijos: <br><br>
+        <input type="radio" name="hijos" value="si" id="hijos" /> Si
+        <input type="radio" name="hijos" value="no" id="hijos" /> No
+      </p>
+      <p hidden="true" class = "hidde"> Numero de hijos: <input type="number" id="numHijos" min="1"/> </p>
+      <p><input type="checkbox" id="aceptar"/> Acepto los terminos y condiciones</p>
+      <input type="submit" id="submit"/>
+      <input type="reset" id="reset"/>
+    </form>
+
+  </body>
+  <script src="formulario.js"></script>
+</html>
