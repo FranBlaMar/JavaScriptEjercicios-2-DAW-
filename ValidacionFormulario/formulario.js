@@ -66,7 +66,7 @@ edad.addEventListener("change",(e) =>{
 })
 
 /*Al igual que con el input de hijos, le añadimos a cada radio el evento correspondiente*/
-for (let i = 0; i < hijos.length; i++){
+for (let i = 0; i < sexo.length; i++){
     sexo[i].addEventListener("change",(e) =>{
         let dato = e.target.value;
         if (dato != null){
