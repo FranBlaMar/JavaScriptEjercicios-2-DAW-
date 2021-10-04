@@ -1,5 +1,4 @@
-let formulario = document.querySelector("form");
-let submit = document.getElementById("submit");
+let formulario = document.getElementsByTagName("form")[0];
 
 let nombre = document.getElementById("nombre");
 let edad = document.getElementById("edad");
@@ -9,9 +8,12 @@ let numHijos = document.getElementById("numHijos");
 let terminos = document.getElementById("aceptar");
 
 
+/*Recorro todos los input de tipo radio y les añado el evento */
 for (let i = 0; i < hijos.length; i++){
     hijos[i].addEventListener("change",(e) => {
+        //Obtengo el p que esta oculto
         let preguntaOculta = document.querySelector("p.hidde");
+        //Si esta marcado el primer radio que es(Si tiene hijos), se elimina el atributo hidden de la pregunta oculta
         if (hijos[0].checked){
             preguntaOculta.hidden =false;
         }
@@ -21,6 +23,7 @@ for (let i = 0; i < hijos.length; i++){
     })
 }
 
+/*Creo la clase validar, donde uso los atributos para guardar si un campo del formulario es correcto o no */
 const validar = {
     dni: false,
     nombre: false,
@@ -36,6 +39,7 @@ formulario.addEventListener("submit",(e) =>{
     validarFormulario();
 })
 
+/*Añadimos el evento de validacion al dni,nombre y edad */
 dni.addEventListener("change",(e) =>{
     let dato = e.target.value.trim();
     let expresion = /^[1-9][0-9]{7}[A-Z]$/;
@@ -61,6 +65,7 @@ edad.addEventListener("change",(e) =>{
     else validar.edad = false;
 })
 
+/*Al igual que con el input de hijos, le añadimos a cada radio el evento correspondiente*/
 for (let i = 0; i < hijos.length; i++){
     sexo[i].addEventListener("change",(e) =>{
         let dato = e.target.value;
@@ -80,6 +85,7 @@ for (let i = 0; i < hijos.length; i++){
         else validar.hijos = false;
     })
 }
+/*Comprobamos si el campo de terminos esta marcado o no */
 terminos.addEventListener("change",(e) =>{
     let dato = e.target;
     if (dato.checked){
@@ -87,8 +93,6 @@ terminos.addEventListener("change",(e) =>{
     }
     else validar.terminos = false;
 })
-
-
 
 
 /*Funcion donde comprobamos si hay algun datos que no sea valido, si son todos validos se ejecuta el submit*/
