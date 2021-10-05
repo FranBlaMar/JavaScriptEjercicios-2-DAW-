@@ -1,0 +1,1 @@
+document.getElementById("boton").addEventListener("click",function(){window.open("file:///home/usuario/Documents/JavaScript(Ejercicios)/ObjetosNativos/ejercicio1.html","ventana","width=900,height=600")});
